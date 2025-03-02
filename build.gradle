@@ -5,7 +5,7 @@ buildscript {
         maven { url 'https://jitpack.io' }
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:3.2.1'
+        classpath 'com.android.tools.build:gradle:8.8.2'
     }
 }
 
@@ -18,11 +18,10 @@ allprojects {
 }
 
 ext {
-	compileSdkVersion = 28
-	buildToolsVersion = "28.0.3"
+	compileSdkVersion = 35
 	minSdkVersion = 15
-	targetSdkVersion = 28
-	sourceCompatibility = JavaVersion.VERSION_1_8
-	targetCompatibility = JavaVersion.VERSION_1_8
+	targetSdkVersion = 35
+	sourceCompatibility = JavaVersion.VERSION_21
+	targetCompatibility = JavaVersion.VERSION_21
 	lintAbortOnError = false
 }

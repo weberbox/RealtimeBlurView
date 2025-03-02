@@ -1,24 +1,17 @@
 apply plugin: 'com.android.application'
 
-dependencies {
-    implementation project(':library')
-    implementation fileTree(dir: 'libs', include: ['*.jar'])
-}
-
 android {
-    compileSdkVersion rootProject.ext.compileSdkVersion
-    buildToolsVersion rootProject.ext.buildToolsVersion
+    compileSdk rootProject.ext.compileSdkVersion
+
+    namespace 'com.github.mmin18.realtimeblurview.sample'
 
     defaultConfig {
-        minSdkVersion rootProject.ext.minSdkVersion
-        targetSdkVersion rootProject.ext.targetSdkVersion
+        minSdk rootProject.ext.minSdkVersion
+        targetSdk rootProject.ext.targetSdkVersion
         renderscriptTargetApi 19
         renderscriptSupportModeEnabled true
     }
 
-    lintOptions {
-        abortOnError rootProject.ext.lintAbortOnError
-    }
 
     compileOptions {
         sourceCompatibility rootProject.ext.sourceCompatibility
@@ -45,4 +38,13 @@ android {
         debug.setRoot('build-types/debug')
         release.setRoot('build-types/release')
     }
+
+    lint {
+        abortOnError lintAbortOnError
+    }
+}
+
+dependencies {
+    implementation project(':library')
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
 }

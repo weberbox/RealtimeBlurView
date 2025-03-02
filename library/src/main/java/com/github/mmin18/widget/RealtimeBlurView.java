@@ -14,8 +14,6 @@ import android.util.TypedValue;
 import android.view.View;
 import android.view.ViewTreeObserver;
 
-import com.github.mmin18.realtimeblurview.R;
-
 /**
  * A realtime blurring overlay (like iOS UIVisualEffectView). Just put it above
  * the view you want to blur and it doesn't have to be in the same ViewGroup
@@ -96,7 +94,7 @@ public class RealtimeBlurView extends View {
 				getClass().getClassLoader().loadClass("android.support.v8.renderscript.RenderScript");
 				// initialize RenderScript to load jni impl
 				// may throw unsatisfied link error
-				SupportLibraryBlurImpl impl = new SupportLibraryBlurImpl();
+				AndroidXBlurImpl impl = new AndroidXBlurImpl();
 				Bitmap bmp = Bitmap.createBitmap(4, 4, Bitmap.Config.ARGB_8888);
 				impl.prepare(getContext(), bmp, 4);
 				impl.release();
@@ -111,11 +109,9 @@ public class RealtimeBlurView extends View {
 			BLUR_IMPL = -1;
 		}
 		switch (BLUR_IMPL) {
-			case 1:
+			case 1, 2:
 				return new AndroidXBlurImpl();
-			case 2:
-				return new SupportLibraryBlurImpl();
-			case 3:
+            case 3:
 				return new AndroidStockBlurImpl();
 			default:
 				return new EmptyBlurImpl();
