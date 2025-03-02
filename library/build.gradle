@@ -1,5 +1,6 @@
 apply plugin: 'com.android.library'
 apply plugin: 'com.novoda.bintray-release' // must be applied after your artifact generating plugin (eg. java / com.android.library)
+apply plugin: 'maven'
 
 dependencies {
     api fileTree(dir: 'libs', include: '*.jar')
@@ -48,7 +49,8 @@ android {
 
 buildscript {
     repositories {
-        jcenter()
+        mavenCentral()
+        maven { url 'https://jitpack.io' }
     }
     dependencies {
         classpath 'com.novoda:bintray-release:0.9.1'

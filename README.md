@@ -2,6 +2,8 @@
 
 It's just a realtime blurring overlay like iOS UIVisualEffectView.
 
+[![](https://jitpack.io/v/mmin18/RealtimeBlurView.svg)](https://jitpack.io/#mmin18/RealtimeBlurView)
+
 ![IMG](imgs/1.gif)
 
 Just put the view in the layout xml, no Java code is required.
