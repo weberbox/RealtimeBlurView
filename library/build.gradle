@@ -10,6 +10,9 @@ android {
         minSdk rootProject.ext.minSdkVersion
         targetSdk rootProject.ext.targetSdkVersion
 
+        versionName project.VERSION_NAME
+        versionCode Integer.parseInt(project.VERSION_CODE)
+
         renderscriptTargetApi 19
         renderscriptSupportModeEnabled true
 
@@ -28,6 +31,7 @@ android {
         sourceCompatibility JavaVersion.VERSION_21
         targetCompatibility JavaVersion.VERSION_21
     }
+
     lint {
         abortOnError lintAbortOnError
     }
@@ -36,4 +40,14 @@ android {
 
 dependencies {
     api fileTree(dir: 'libs', include: '*.jar')
+}
+
+publishing {
+    publications {
+        mavenJava(MavenPublication) {
+            groupId = 'com.github.mmin18.widget'
+            artifactId = 'library'
+            version = '1.2.3'
+        }
+    }
 }
