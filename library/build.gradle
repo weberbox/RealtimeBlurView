@@ -47,7 +47,7 @@ publishing {
         mavenJava(MavenPublication) {
             groupId = 'com.github.mmin18.widget'
             artifactId = 'library'
-            version = '1.2.3'
+            version = '1.2.4'
         }
     }
 }
